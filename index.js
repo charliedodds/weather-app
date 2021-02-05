@@ -77,6 +77,7 @@ const updateDOM = (data) => {
 };
 
 const startThinking = () => {
+  displayCity.textContent = 'Thinking...';
   emoji.src = 'think.png';
 };
 
