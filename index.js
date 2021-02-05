@@ -1,4 +1,4 @@
-const weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const weatherURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
 let query = 'london';
 const apiKey = '&appid=8fe4e4b12806b45a982605effb769a3b';
 const units = '&units=';
