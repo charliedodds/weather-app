@@ -100,3 +100,9 @@ button {
 form > * {
   font-family: inherit;
 }
+
+#error {
+  text-align: center;
+  color: #860000;
+  font-weight: bold;
+}
