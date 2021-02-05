@@ -85,7 +85,7 @@ const getWeather = async (e) => {
     startThinking();
     checkEvent(e);
     const fullWeatherURL = `${weatherURL}${query}${apiKey}${units}${unit}`;
-    const response = await fetch(fullWeatherURL);
+    const response = await fetch(fullWeatherURL, { mode: 'cors' });
     const data = await response.json();
     if (data.message === 'city not found') {
       throw new Error(data.message);
