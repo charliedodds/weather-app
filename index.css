@@ -106,3 +106,12 @@ form > * {
   color: #860000;
   font-weight: bold;
 }
+
+@media (min-width: 499.98px) {
+  html {
+    font-size: 16px;
+  }
+  input {
+    width: 80%;
+  }
+}
