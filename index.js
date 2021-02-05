@@ -11,6 +11,8 @@ const displayTemp = document.querySelector('#displayTemp');
 const displayFeels = document.querySelector('#displayFeels');
 const displayUnit = document.querySelector('#displayUnit');
 
+const emoji = document.querySelector('#emoji');
+
 const form = document.querySelector('form');
 const city = document.querySelector('#city');
 const errorP = document.querySelector('#error');
@@ -47,15 +49,40 @@ const updateFeels = (data) => {
   displayFeels.textContent = data.main.feels_like + checkUnit(unit);
 };
 
+const updateError = (error = '') => {
+  errorP.textContent = error;
+};
+
+const updateEmoji = (data) => {
+  if (data.main.feels_like < 5) {
+    emoji.src = 'frozen.png';
+  } else if (data.main.feels_like < 10) {
+    emoji.src = 'grimace.png';
+  } else if (data.main.feels_like < 20) {
+    emoji.src = 'happy.png';
+  } else if (data.main.feels_like < 30) {
+    emoji.src = 'sunglasses.png';
+  } else {
+    emoji.src = 'hot.png';
+  }
+};
+
 const updateDOM = (data) => {
   updateCity(data);
   updateTemp(data);
   updateFeels(data);
-  errorP.textContent = '';
+  updateEmoji(data);
+  updateError();
+  resetInput();
+};
+
+const startThinking = () => {
+  emoji.src = 'think.png';
 };
 
 const getWeather = async (e) => {
   try {
+    startThinking();
     checkEvent(e);
     const fullWeatherURL = `${weatherURL}${query}${apiKey}${units}${unit}`;
     const response = await fetch(fullWeatherURL);
@@ -65,7 +92,7 @@ const getWeather = async (e) => {
     }
     updateDOM(data);
   } catch (e) {
-    errorP.textContent = e;
+    updateError(e);
   }
 };
 

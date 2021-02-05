@@ -4,14 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <main>
-      <section id="display">
-        <h1 id="displayCity">City</h1>
-        <h2 id="displayTemp">Temperature</h2>
-        <h3 id="displayFeels">Feels like:</h3>
+      <section>
+        <section class="header">
+          <h1 id="displayCity">City</h1>
+          <img id="emoji" alt="emoji" />
+        </section>
+        <section class="temperatures">
+          <section class="display">
+            <p>Temperature:</p>
+            <h2 id="displayTemp"></h2>
+          </section>
+          <section class="display">
+            <p>Feels like:</p>
+            <h2 id="displayFeels">Feels like:</h2>
+          </section>
+        </section>
       </section>
       <section id="search">
         <form>
